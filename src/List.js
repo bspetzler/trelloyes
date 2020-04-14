@@ -12,14 +12,20 @@ function List(props){
           {props.cards.map((card) =>
             <Card
               key={card.id}
+              id={card.id}
               title={card.title}
               content={card.content}
+              onDelete = {props.onDelete}
             />
           )}
-          <button type='button' className='List-add-button'>+ Add Random Card</button>
+          <button onClick={() => props.onAdd(props.id)} type='button' className='List-add-button'>+ Add Random Card</button>
         </div>
       </section>
     )
+}
+
+List.defaultProps = {
+  onClickAdd: () => {},
 }
 
 export default List;
